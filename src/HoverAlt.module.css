@@ -1,0 +1,21 @@
+.Container {
+    width: 100%;
+    position: static;
+    background-color: #61dafb;
+}
+.ImgForeground {
+    max-width: 100%;
+    height: auto;
+    left: 0;
+    position: absolute;
+    opacity: 1;
+}
+.ImgForeground:hover {
+    opacity: 0;
+}
+.ImgBackground {
+    max-width: 100%;
+    height: auto;
+    left: 0;
+    position: absolute;
+}
