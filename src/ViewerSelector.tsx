@@ -2,10 +2,12 @@ import React, {useState} from "react";
 import {AltProps} from "./AltViewers/AltProps";
 import {HoverAlt} from "./AltViewers/HoverAlt";
 import {VerticalSplitAlt} from "./AltViewers/VerticalSplitAlt";
+import {HorizontalSplitAlt} from "./AltViewers/HorizontalSplitAlt";
 
 enum ViewerChoice {
     hover,
-    verticalSplit
+    verticalSplit,
+    horizontalSplit
 }
 
 export const ViewerSelector: React.FunctionComponent<AltProps> = (props) => {
@@ -14,6 +16,8 @@ export const ViewerSelector: React.FunctionComponent<AltProps> = (props) => {
     let viewer = HoverAlt(props);
     if (choice === ViewerChoice.verticalSplit)
         viewer = VerticalSplitAlt(props);
+    if (choice === ViewerChoice.horizontalSplit)
+        viewer = HorizontalSplitAlt(props);
 
     return (
         <div>
@@ -34,6 +38,15 @@ export const ViewerSelector: React.FunctionComponent<AltProps> = (props) => {
                         checked={choice === ViewerChoice.verticalSplit}
                         onChange={() => {
                             setChoice(ViewerChoice.verticalSplit)
+                        }}
+                    />
+                </label>
+                <label>Horizontal split
+                    <input
+                        type="radio"
+                        checked={choice === ViewerChoice.horizontalSplit}
+                        onChange={() => {
+                            setChoice(ViewerChoice.horizontalSplit)
                         }}
                     />
                 </label>
