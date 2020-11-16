@@ -1,11 +1,12 @@
 import React from "react";
 import {AltProps} from "./AltProps";
 import styles from "./HorizontalSplitAlt.module.css";
-import ReactCursorDetection, {ICursorDetectionPassThroughProps} from "react-cursor-detection";
+import useMouse from "@react-hook/mouse-position";
 
 
 export const HorizontalSplitAlt: React.FunctionComponent<AltProps> = (props: AltProps) => {
     const {foregroundImg} = props;
+
     return (
         <div className={styles.Container}>
             <img
@@ -13,21 +14,25 @@ export const HorizontalSplitAlt: React.FunctionComponent<AltProps> = (props: Alt
                 className={styles.ImgBackground}
                 alt="Background"
             />
-            <ReactCursorDetection>
-                {(props) => <ForegroundImg foregroundImg={foregroundImg} {...props}/>}
-            </ReactCursorDetection>
+            <ForegroundImg foregroundImg={foregroundImg} />
         </div>
     )
 }
 
-interface ForegroundProps extends ICursorDetectionPassThroughProps {
+interface ForegroundProps {
     foregroundImg: string;
 }
 
 const ForegroundImg: React.FunctionComponent<ForegroundProps> = (props) => {
-    return <div className={styles.ForegroundWrapper}>
+    const ref = React.useRef(null)
+    const mouse = useMouse(ref, {
+        enterDelay: 100,
+        leaveDelay: 100,
+    })
+
+    return <div className={styles.ForegroundWrapper} ref={ref}>
         <div className={styles.ForegroundSlider} style={{
-            "height": props.position.y,
+            "height": mouse.y || 0,
         }}>
             <img
                 src={props.foregroundImg}
