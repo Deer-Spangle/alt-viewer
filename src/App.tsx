@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import logo from './logo.svg';
 import styles from './App.module.css';
-//import {HoverAlt} from "./AltViewers/HoverAlt";
-import {VerticalSplitAlt} from "./AltViewers/VerticalSplitAlt";
+import {ViewerSelector} from "./ViewerSelector";
 
 
 const App: React.FunctionComponent = () => {
@@ -26,7 +25,7 @@ const App: React.FunctionComponent = () => {
                     setBackgroundImg(e.target.value)
                 }}
             /></label><br/>
-            <VerticalSplitAlt
+            <ViewerSelector
                 foregroundImg={foregroundImg}
                 backgroundImg={backgroundImg}
             />
