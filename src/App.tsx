@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import logo from './logo.svg';
 import styles from './App.module.css';
-import {HoverAlt} from "./HoverAlt";
+//import {HoverAlt} from "./AltViewers/HoverAlt";
+import {VerticalSplitAlt} from "./AltViewers/VerticalSplitAlt";
 
 
 const App: React.FunctionComponent = () => {
@@ -25,7 +26,7 @@ const App: React.FunctionComponent = () => {
                     setBackgroundImg(e.target.value)
                 }}
             /></label><br/>
-            <HoverAlt
+            <VerticalSplitAlt
                 foregroundImg={foregroundImg}
                 backgroundImg={backgroundImg}
             />

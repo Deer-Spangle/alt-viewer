@@ -1,0 +1,26 @@
+.Container {
+    width: 100%;
+    position: static;
+    background-color: #61dafb;
+}
+.ImgBackground {
+    max-width: 100vw;
+    height: auto;
+    left: 0;
+    position: absolute;
+    z-index: 1;
+}
+.ForegroundWrapper {
+    position: absolute;
+    width: 100vw;
+    z-index: 2;
+}
+.ForegroundSlider {
+    overflow: hidden;
+    border-right: 4px solid black;
+}
+.ImgForeground {
+    max-width: 100vw;
+    height: auto;
+    z-index: 2;
+}
