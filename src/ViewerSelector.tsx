@@ -23,7 +23,7 @@ export const ViewerSelector: React.FunctionComponent<AltProps> = (props) => {
                     <input
                         type="radio"
                         checked={choice === ViewerChoice.hover}
-                        onChange={(e) => {
+                        onChange={() => {
                             setChoice(ViewerChoice.hover)
                         }}
                     />
@@ -32,7 +32,7 @@ export const ViewerSelector: React.FunctionComponent<AltProps> = (props) => {
                     <input
                         type="radio"
                         checked={choice === ViewerChoice.verticalSplit}
-                        onChange={(e) => {
+                        onChange={() => {
                             setChoice(ViewerChoice.verticalSplit)
                         }}
                     />
