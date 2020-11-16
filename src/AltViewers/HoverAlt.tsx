@@ -1,12 +1,9 @@
 import React from "react";
 import styles from "./HoverAlt.module.css";
+import {AltProps} from "./AltProps";
 
-interface HoverAltProps {
-    foregroundImg: string;
-    backgroundImg: string;
-}
 
-export const HoverAlt: React.FunctionComponent<HoverAltProps> = (props: HoverAltProps) => {
+export const HoverAlt: React.FunctionComponent<AltProps> = (props: AltProps) => {
 
     return (
         <div className={styles.Container}>
