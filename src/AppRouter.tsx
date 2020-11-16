@@ -6,7 +6,7 @@ export const AppRouter: React.FunctionComponent<{}> = (props) => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/:foreground?/:background?">
+                <Route path="/:viewer?/:foreground?/:background?">
                     <App />
                 </Route>
             </Switch>

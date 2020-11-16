@@ -1,17 +1,17 @@
-import React, {useState} from "react";
+import React from "react";
 import {AltProps} from "./AltViewers/AltProps";
 import {HoverAlt} from "./AltViewers/HoverAlt";
 import {VerticalSplitAlt} from "./AltViewers/VerticalSplitAlt";
 import {HorizontalSplitAlt} from "./AltViewers/HorizontalSplitAlt";
+import {ViewerChoice} from "./ViewerChoice";
 
-enum ViewerChoice {
-    hover,
-    verticalSplit,
-    horizontalSplit
+interface ViewerSelectorProps extends AltProps {
+    choice: ViewerChoice;
+    setChoice: (choice: ViewerChoice) => void;
 }
 
-export const ViewerSelector: React.FunctionComponent<AltProps> = (props) => {
-    const [choice, setChoice] = useState(ViewerChoice.hover);
+export const ViewerSelector: React.FunctionComponent<ViewerSelectorProps> = (props) => {
+    const {choice, setChoice} = props;
 
     let viewer = HoverAlt(props);
     if (choice === ViewerChoice.verticalSplit)
