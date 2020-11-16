@@ -6,8 +6,8 @@ import {HoverAlt} from "./HoverAlt";
 
 const App: React.FunctionComponent = () => {
 
-    const [foregroundImg, setForegroundImg] = useState("");
-    const [backgroundImg, setBackgroundImg] = useState("");
+    const [foregroundImg, setForegroundImg] = useState("https://i.imgur.com/8lyMaZH.png");
+    const [backgroundImg, setBackgroundImg] = useState("https://i.imgur.com/7AdQO0r.png");
 
     return (
         <div className={styles.App}>
