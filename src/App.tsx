@@ -1,12 +1,27 @@
 import React, {useState} from 'react';
 import styles from './App.module.css';
 import {ViewerSelector} from "./ViewerSelector";
+import {useParams, useHistory} from "react-router-dom";
+
+type AppPathParams = {
+    foreground?: string;
+    background?: string;
+    /*viewer?: ViewerChoice;*/
+}
 
 
-const App: React.FunctionComponent = () => {
 
-    const [foregroundImg, setForegroundImg] = useState("https://i.imgur.com/8lyMaZH.png");
-    const [backgroundImg, setBackgroundImg] = useState("https://i.imgur.com/7AdQO0r.png");
+export const App: React.FunctionComponent = () => {
+    let params = useParams<AppPathParams>();
+    let history = useHistory();
+    let foregroundParam = params.foreground ? atob(params.foreground) : "https://i.imgur.com/8lyMaZH.png";
+    let backgroundParam = params.background ? atob(params.background) : "https://i.imgur.com/7AdQO0r.png"
+    const [foregroundImg, setForegroundImg] = useState(foregroundParam);
+    const [backgroundImg, setBackgroundImg] = useState(backgroundParam);
+
+    const updatePath = (fore: string, back: string) => {
+        history.push(`/${btoa(fore)}/${btoa(back)}`);
+    }
 
     return (
         <div className={styles.App}>
@@ -14,7 +29,8 @@ const App: React.FunctionComponent = () => {
                 type="text"
                 value={foregroundImg}
                 onChange={(e) => {
-                    setForegroundImg(e.target.value)
+                    setForegroundImg(e.target.value);
+                    updatePath(e.target.value, backgroundImg);
                 }}
             /></label><br/>
             <label>Background Image: <input
@@ -22,6 +38,7 @@ const App: React.FunctionComponent = () => {
                 value={backgroundImg}
                 onChange={(e) => {
                     setBackgroundImg(e.target.value)
+                    updatePath(foregroundImg, e.target.value);
                 }}
             /></label><br/>
             <ViewerSelector
@@ -31,5 +48,3 @@ const App: React.FunctionComponent = () => {
         </div>
     );
 }
-
-export default App;
