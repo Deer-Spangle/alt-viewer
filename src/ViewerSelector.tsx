@@ -4,6 +4,8 @@ import {HoverAlt} from "./AltViewers/HoverAlt";
 import {VerticalSplitAlt} from "./AltViewers/VerticalSplitAlt";
 import {HorizontalSplitAlt} from "./AltViewers/HorizontalSplitAlt";
 import {ViewerChoice} from "./ViewerChoice";
+import styles from "./ViewerSelector.module.css";
+import classnames from "classnames";
 
 interface ViewerSelectorProps extends AltProps {
     choice: ViewerChoice;
@@ -22,34 +24,45 @@ export const ViewerSelector: React.FunctionComponent<ViewerSelectorProps> = (pro
     return (
         <div>
             <div>
-                Select viewer:
-                <label>Hover
-                    <input
-                        type="radio"
-                        checked={choice === ViewerChoice.hover}
-                        onChange={() => {
-                            setChoice(ViewerChoice.hover)
-                        }}
-                    />
-                </label>
-                <label>Vertical split
-                    <input
-                        type="radio"
-                        checked={choice === ViewerChoice.verticalSplit}
-                        onChange={() => {
-                            setChoice(ViewerChoice.verticalSplit)
-                        }}
-                    />
-                </label>
-                <label>Horizontal split
-                    <input
-                        type="radio"
-                        checked={choice === ViewerChoice.horizontalSplit}
-                        onChange={() => {
-                            setChoice(ViewerChoice.horizontalSplit)
-                        }}
-                    />
-                </label>
+                <div
+                    className={classnames(
+                        styles.Option,
+                        {
+                            [styles.Selected]: choice === ViewerChoice.hover
+                        }
+                    )}
+                    onClick={() => {
+                        setChoice(ViewerChoice.hover)
+                    }}
+                >
+                    Hover
+                </div>
+                <div
+                    className={classnames(
+                        styles.Option,
+                        {
+                            [styles.Selected]: choice === ViewerChoice.verticalSplit
+                        }
+                    )}
+                    onClick={() => {
+                        setChoice(ViewerChoice.verticalSplit)
+                    }}
+                >
+                    Vertical split
+                </div>
+                <div
+                    className={classnames(
+                        styles.Option,
+                        {
+                            [styles.Selected]: choice === ViewerChoice.horizontalSplit
+                        }
+                    )}
+                    onClick={() => {
+                        setChoice(ViewerChoice.horizontalSplit)
+                    }}
+                >
+                    Horizontal split
+                </div>
             </div>
             {viewer}
         </div>

@@ -1,0 +1,9 @@
+.Option {
+    padding: 0.5em 2em;
+    cursor: pointer;
+    display: inline-block;
+}
+.Selected {
+    background-color: mediumpurple;
+    cursor: auto;
+}
