@@ -5,6 +5,8 @@ export enum ViewerChoice {
 }
 
 export function stringToChoice(choice: string) {
-    const typedColorString = choice as keyof typeof ViewerChoice;
-    return ViewerChoice[typedColorString];
+    let keys = Object.keys(ViewerChoice).filter(
+        x => ViewerChoice[x as keyof typeof ViewerChoice] === choice
+    );
+    return keys.length > 0 ? ViewerChoice[keys[0] as keyof typeof ViewerChoice] : ViewerChoice.hover;
 }
