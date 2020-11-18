@@ -2,6 +2,7 @@
     width: 100%;
     position: static;
     background-color: #61dafb;
+    touch-action: none;
 }
 .ImgBackground {
     max-width: 100vw;
