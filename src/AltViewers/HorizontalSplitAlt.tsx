@@ -2,6 +2,7 @@ import React from "react";
 import {AltProps} from "./AltProps";
 import styles from "./HorizontalSplitAlt.module.css";
 import useMouse from "@react-hook/mouse-position";
+import {HotlinkImage} from "../HotlinkImage";
 
 
 export const HorizontalSplitAlt: React.FunctionComponent<AltProps> = (props: AltProps) => {
@@ -9,7 +10,7 @@ export const HorizontalSplitAlt: React.FunctionComponent<AltProps> = (props: Alt
 
     return (
         <div className={styles.Container}>
-            <img
+            <HotlinkImage
                 src={props.backgroundImg}
                 className={styles.ImgBackground}
                 alt="Background"
@@ -34,7 +35,7 @@ const ForegroundImg: React.FunctionComponent<ForegroundProps> = (props) => {
         <div className={styles.ForegroundSlider} style={{
             "height": mouse.y || 0,
         }}>
-            <img
+            <HotlinkImage
                 src={props.foregroundImg}
                 className={styles.ImgForeground}
                 alt="Foreground"
