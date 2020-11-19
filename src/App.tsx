@@ -3,6 +3,7 @@ import styles from './App.module.css';
 import {ViewerSelector} from "./ViewerSelector";
 import {useParams, useHistory} from "react-router-dom";
 import {stringToChoice, ViewerChoice} from "./ViewerChoice";
+import {ImageInputs} from "./ImageInputs";
 
 type AppPathParams = {
     foreground?: string;
@@ -37,24 +38,19 @@ export const App: React.FunctionComponent = () => {
         updatePath(newChoice, foregroundImg, backgroundImg);
     }
 
+    const updatePathImages = (fore: string, back: string) => {
+        updatePath(choice, fore, back);
+    }
+
     return (
         <div className={styles.App}>
-            <label>Foreground Image: <input
-                type="text"
-                value={foregroundImg}
-                onChange={(e) => {
-                    setForegroundImg(e.target.value);
-                    updatePath(choice, e.target.value, backgroundImg);
-                }}
-            /></label><br/>
-            <label>Background Image: <input
-                type="text"
-                value={backgroundImg}
-                onChange={(e) => {
-                    setBackgroundImg(e.target.value)
-                    updatePath(choice, foregroundImg, e.target.value);
-                }}
-            /></label><br/>
+            <ImageInputs
+                foregroundImg={foregroundImg}
+                backgroundImg={backgroundImg}
+                setForegroundImg={setForegroundImg}
+                setBackgroundImg={setBackgroundImg}
+                updatePathImages={updatePathImages}
+            />
             <ViewerSelector
                 foregroundImg={foregroundImg}
                 backgroundImg={backgroundImg}

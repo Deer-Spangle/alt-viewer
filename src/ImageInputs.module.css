@@ -1,0 +1,21 @@
+.ImageInput {
+    display: flex;
+    width: 100%;
+    padding-bottom: 0.7em;
+}
+.ImageInput label {
+    padding-right: 1em;
+    padding-left: 0.5em;
+}
+.ImageInput input[type=text] {
+    flex: 1;
+}
+.ImageInputs {
+    padding-top: 0.5em;
+    padding-bottom: 0.2em;
+}
+@media only screen and (max-width: 768px) {
+    span.ExtraText {
+        display: none;
+    }
+}
