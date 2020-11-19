@@ -13,9 +13,20 @@
 .ImageInputs {
     padding-top: 0.5em;
     padding-bottom: 0.2em;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
 }
 @media only screen and (max-width: 768px) {
     span.ExtraText {
         display: none;
     }
+}
+.FlipInputs {
+    flex-grow: 0;
+    flex-basis: 2em;
+    padding: 0 0.2em;
+}
+.InputFields {
+    flex: 1;
 }

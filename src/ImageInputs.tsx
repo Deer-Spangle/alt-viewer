@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./ImageInputs.module.css";
+import {SwapIcon} from "./SwapIcon";
 
 interface ImageInputsProps {
     foregroundImg: string;
@@ -12,10 +13,19 @@ interface ImageInputsProps {
 export const ImageInputs: React.FunctionComponent<ImageInputsProps> = (props) => {
     const {foregroundImg, backgroundImg, setForegroundImg, setBackgroundImg, updatePathImages} = props;
 
+    const swapImgs = () => {
+        const back = backgroundImg;
+        const fore = foregroundImg;
+        setForegroundImg(back);
+        setBackgroundImg(fore);
+        updatePathImages(back, fore);
+    }
+
     return <div
         className={styles.ImageInputs}
     >
-        <div className={styles.ImageInput}>
+        <div className={styles.InputFields}>
+            <div className={styles.ImageInput}>
             <label htmlFor="ForegroundImg">
                 Foreground<span className={styles.ExtraText}> Image</span>:
             </label>
@@ -29,7 +39,7 @@ export const ImageInputs: React.FunctionComponent<ImageInputsProps> = (props) =>
                 }}
             />
         </div>
-        <div className={styles.ImageInput}>
+            <div className={styles.ImageInput}>
             <label htmlFor="BackgroundImg">
                 Background<span className={styles.ExtraText}> Image</span>:
             </label>
@@ -42,6 +52,15 @@ export const ImageInputs: React.FunctionComponent<ImageInputsProps> = (props) =>
                     updatePathImages(foregroundImg, e.target.value);
                 }}
             />
+        </div>
+        </div>
+        <div
+            className={styles.FlipInputs}
+            onClick={() => {
+                swapImgs()
+            }}
+        >
+            <SwapIcon/>
         </div>
     </div>
 }
