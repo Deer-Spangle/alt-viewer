@@ -15,12 +15,6 @@ interface ViewerSelectorProps extends AltProps {
 export const ViewerSelector: React.FunctionComponent<ViewerSelectorProps> = (props) => {
     const {choice, setChoice} = props;
 
-    let viewer = HoverAlt(props);
-    if (choice === ViewerChoice.verticalSplit)
-        viewer = VerticalSplitAlt(props);
-    if (choice === ViewerChoice.horizontalSplit)
-        viewer = HorizontalSplitAlt(props);
-
     return (
         <div>
             <div>
@@ -64,7 +58,20 @@ export const ViewerSelector: React.FunctionComponent<ViewerSelectorProps> = (pro
                     Horizontal split
                 </div>
             </div>
-            {viewer}
+            {{
+                [ViewerChoice.hover]: <HoverAlt
+                    foregroundImg={props.foregroundImg}
+                    backgroundImg={props.backgroundImg}
+                />,
+                [ViewerChoice.verticalSplit]: <VerticalSplitAlt
+                    foregroundImg={props.foregroundImg}
+                    backgroundImg={props.backgroundImg}
+                />,
+                [ViewerChoice.horizontalSplit]: <HorizontalSplitAlt
+                    foregroundImg={props.foregroundImg}
+                    backgroundImg={props.backgroundImg}
+                />
+            }[choice]}
         </div>
     )
 }
