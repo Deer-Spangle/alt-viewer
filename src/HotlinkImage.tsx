@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 interface ImageProps {
     src: string
@@ -8,6 +8,10 @@ interface ImageProps {
 
 export const HotlinkImage: React.FunctionComponent<ImageProps> = (props) => {
     const [src, setSrc] = useState(props.src);
+
+    useEffect(() => {
+        setSrc(props.src);
+    }, [props.src]);
 
     return (
         <img
