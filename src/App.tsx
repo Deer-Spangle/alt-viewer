@@ -4,6 +4,7 @@ import {ViewerSelector} from "./ViewerSelector";
 import {useParams, useHistory} from "react-router-dom";
 import {stringToChoice, ViewerChoice} from "./ViewerChoice";
 import {ImageInputs} from "./ImageInputs";
+import {AppMeta} from "./AppMeta";
 
 type AppPathParams = {
     foreground?: string;
@@ -57,6 +58,7 @@ export const App: React.FunctionComponent = () => {
                 choice={choice}
                 setChoice={updateChoice}
             />
+            <AppMeta foregroundImg={foregroundImg} backgroundImg={backgroundImg} choice={choice} />
         </div>
-    );
+    )
 }
