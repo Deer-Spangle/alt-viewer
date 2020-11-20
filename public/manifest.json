@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Alt viewer",
+  "name": "Image alt viewer and comparison",
   "icons": [
     {
       "src": "favicon.ico",
