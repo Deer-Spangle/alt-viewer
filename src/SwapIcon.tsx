@@ -20,13 +20,13 @@ export const SwapIcon: React.FunctionComponent = () => {
             strokeWidth="1"
         >
             <path
-                d="M14.0008723,8.49912766 L18.0008723,2.99912766 L22.0008723,8.49912766 M18.0008723,3.00087234 L18.0008723,20.9991277"
+                d="M14,6.5 L18,3 L22,6.5 M18,3 L18,21"
                 id="Path"
                 stroke="#FFFFFF"
                 strokeWidth="2"
             />
             <path
-                d="M10.0008723,15.5008723 L6.00087234,21.0008723 L2.00087234,15.5008723 M6.00087234,20.9991277 L6.00087234,2.99912766"
+                d="M10,17.5 L6,21 L2,17.5 M6,21 L6,3"
                 id="Path"
                 stroke="#FFFFFF"
                 strokeWidth="2"
