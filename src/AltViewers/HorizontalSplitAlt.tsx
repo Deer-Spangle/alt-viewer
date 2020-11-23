@@ -3,6 +3,7 @@ import {AltProps} from "./AltProps";
 import styles from "./HorizontalSplitAlt.module.css";
 import useMouse from "@react-hook/mouse-position";
 import {HotlinkImage} from "../HotlinkImage";
+import {useMouseLatest} from "../UseMouseLatest";
 
 
 export const HorizontalSplitAlt: React.FunctionComponent<AltProps> = (props: AltProps) => {
@@ -26,10 +27,7 @@ interface ForegroundProps {
 
 const ForegroundImg: React.FunctionComponent<ForegroundProps> = (props) => {
     const ref = React.useRef(null)
-    const mouse = useMouse(ref, {
-        enterDelay: 100,
-        leaveDelay: 100,
-    })
+    const mouse = useMouseLatest(ref);
 
     return <div className={styles.ForegroundWrapper} ref={ref}>
         <div className={styles.ForegroundSlider} style={{

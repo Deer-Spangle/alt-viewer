@@ -1,8 +1,8 @@
 import React from "react";
 import {AltProps} from "./AltProps";
 import styles from "./VerticalSplitAlt.module.css";
-import useMouse from "@react-hook/mouse-position";
 import {HotlinkImage} from "../HotlinkImage";
+import {useMouseLatest} from "../UseMouseLatest";
 
 
 export const VerticalSplitAlt: React.FunctionComponent<AltProps> = (props: AltProps) => {
@@ -14,7 +14,7 @@ export const VerticalSplitAlt: React.FunctionComponent<AltProps> = (props: AltPr
                 className={styles.ImgBackground}
                 alt="Background"
             />
-            <ForegroundImg foregroundImg={foregroundImg} />
+            <ForegroundImg foregroundImg={foregroundImg}/>
         </div>
     )
 }
@@ -25,10 +25,7 @@ interface ForegroundProps {
 
 const ForegroundImg: React.FunctionComponent<ForegroundProps> = (props) => {
     const ref = React.useRef(null)
-    const mouse = useMouse(ref, {
-        enterDelay: 100,
-        leaveDelay: 100,
-    })
+    const mouse = useMouseLatest(ref)
 
     return <div className={styles.ForegroundWrapper} ref={ref}>
         <div className={styles.ForegroundSlider} style={{
