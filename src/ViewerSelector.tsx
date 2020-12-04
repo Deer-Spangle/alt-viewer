@@ -17,7 +17,7 @@ export const ViewerSelector: React.FunctionComponent<ViewerSelectorProps> = (pro
 
     return (
         <div>
-            <div>
+            <div className={styles.SelectorMenu}>
                 <div
                     className={classnames(
                         styles.Option,
