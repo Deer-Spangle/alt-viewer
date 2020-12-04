@@ -31,6 +31,6 @@ export const SwapIcon: React.FunctionComponent = () => {
                 stroke="#FFFFFF"
                 strokeWidth="2"
                 />
-            </g>
+        </g>
     </svg>
 }

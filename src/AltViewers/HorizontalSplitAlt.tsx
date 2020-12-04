@@ -1,7 +1,6 @@
 import React from "react";
 import {AltProps} from "./AltProps";
 import styles from "./HorizontalSplitAlt.module.css";
-import useMouse from "@react-hook/mouse-position";
 import {HotlinkImage} from "../HotlinkImage";
 import {useMouseLatest} from "../UseMouseLatest";
 
