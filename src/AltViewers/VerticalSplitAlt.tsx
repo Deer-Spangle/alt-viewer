@@ -3,6 +3,7 @@ import {AltProps} from "./AltProps";
 import styles from "./VerticalSplitAlt.module.css";
 import {HotlinkImage} from "../HotlinkImage";
 import {useMouseLatest} from "../UseMouseLatest";
+import useSize from "@react-hook/size";
 
 
 export const VerticalSplitAlt: React.FunctionComponent<AltProps> = (props: AltProps) => {
@@ -26,12 +27,13 @@ interface ForegroundProps {
 const ForegroundImg: React.FunctionComponent<ForegroundProps> = (props) => {
     const ref = React.useRef(null)
     const mouse = useMouseLatest(ref)
+    const [, height] = useSize(ref);
 
     return <div className={styles.ForegroundWrapper} ref={ref}>
         <div className={styles.ForegroundSliderWrapper} style={{
             "width": mouse.x || 100,
         }}>
-            <VerticalSplitHint />
+            <VerticalSplitHint height={height} />
             <div className={styles.ForegroundSlider}>
                 <HotlinkImage
                     src={props.foregroundImg}
@@ -43,9 +45,16 @@ const ForegroundImg: React.FunctionComponent<ForegroundProps> = (props) => {
     </div>
 }
 
-const VerticalSplitHint: React.FunctionComponent = () => {
+interface VerticalSplitHintProps {
+    height: number;
+}
+
+const VerticalSplitHint: React.FunctionComponent<VerticalSplitHintProps> = (props) => {
+    // Can't just set height 100%, as that leads to a bug in chrome where the mask does not resize after the image loads
+    const {height} = props;
+
     return <div className={styles.SliderHint}>
-        <svg width="100" height="100%">
+        <svg width="100" height={height}>
             <mask id="mask" height="200%" width="200%">
                 <rect x="-50%" y="-50%" width="100%" height="100%" fill="white"/>
                 <rect x="-30" y="-30" width="60" height="60" fill="black"/>
