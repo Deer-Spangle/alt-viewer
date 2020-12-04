@@ -16,12 +16,23 @@
     width: 100vw;
     z-index: 2;
 }
+.ForegroundSliderWrapper {
+    position: relative;
+}
 .ForegroundSlider {
     overflow: hidden;
-    border-right: 4px solid black;
+    position: relative;
 }
 .ImgForeground {
     max-width: 100vw;
     height: auto;
     z-index: 2;
+}
+.SliderHint {
+    width: 100px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    margin-right: -50px;
+    z-index: 3;
 }

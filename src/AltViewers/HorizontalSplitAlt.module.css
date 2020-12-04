@@ -18,10 +18,15 @@
 }
 .ForegroundSlider {
     overflow: hidden;
-    border-bottom: 4px solid black;
 }
 .ImgForeground {
     max-width: 100vw;
     height: auto;
     z-index: 2;
+}
+.SliderHint {
+    width: 100%;
+    height: 100px;
+    margin-top: -50px;
+    z-index: 3;
 }
