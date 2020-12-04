@@ -44,7 +44,7 @@ const ForegroundImg: React.FunctionComponent<ForegroundProps> = (props) => {
 
 const HorizontalSplitHint: React.FunctionComponent = () => {
     return <div className={styles.SliderHint}>
-        <svg width="100%" height="100">
+        <svg width="100vw" height="100">
             <mask id="mask" width="200%" height="200%">
                 <rect x="-50%" y="-50%" width="100%" height="100%" fill="white"/>
                 <rect x="-30" y="-30" width="60" height="60" fill="black"/>
