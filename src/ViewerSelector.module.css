@@ -6,6 +6,7 @@
     padding: 0.5em 2em;
     cursor: pointer;
     display: inline-block;
+    background-color: #282c34;
 }
 .Selected {
     background-color: mediumpurple;
