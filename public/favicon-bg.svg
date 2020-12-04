@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" version="1.1"
+     viewBox="0 0 1000 1000" x="100px" y="100px"
+>
+    <rect
+        width="100%"
+        height="100%"
+        fill="#282c34"
+    />
+    <g
+            fill="none"
+            stroke="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+    >
+        <path
+                d="M50,950 L50,350 L350,350 L350,650 L650,650 L650,950 L50,950"
+                id="Path"
+                stroke="mediumpurple"
+                stroke-width="50"
+        />
+        <path
+                d="M350,50 L350,350 L650,350 L650,650 L950,650 L950,50 L350,50"
+                id="Path"
+                stroke="mediumpurple"
+                stroke-width="50"
+                fill="mediumpurple"
+        />
+    </g>
+</svg>
