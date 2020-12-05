@@ -1,7 +1,8 @@
 export enum ViewerChoice {
     hover="hover",
     verticalSplit="vertical",
-    horizontalSplit="horizontal"
+    horizontalSplit="horizontal",
+    xRay="xray"
 }
 
 export function stringToChoice(choice: string) {
