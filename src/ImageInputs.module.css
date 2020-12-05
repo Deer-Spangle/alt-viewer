@@ -16,6 +16,9 @@
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
+    background-color: #282c34;
+    z-index: 4;
+    position: relative;
 }
 @media only screen and (max-width: 768px) {
     span.ExtraText {
