@@ -12,22 +12,24 @@ export const XRayAlt: React.FunctionComponent<AltProps> = (props: AltProps) => {
     const circle = `circle(70px at ${mouse.x||0}px ${mouse.y||0}px`;
 
     return (
-        <div className={styles.Container} ref={ref}>
+        <div className={styles.Container}>
             <HotlinkImage
                 src={props.foregroundImg}
                 className={styles.ImgForeground}
                 alt="Foreground"
             />
-            <div style={{
-                clipPath: circle
-            }}>
-                <HotlinkImage
-                    src={props.backgroundImg}
-                    className={styles.ImgBackground}
-                    alt="Background"
-                />
+            <div className={styles.BackgroundWrapper} ref={ref}>
+                <div style={{
+                    clipPath: circle
+                }}>
+                    <HotlinkImage
+                        src={props.backgroundImg}
+                        className={styles.ImgBackground}
+                        alt="Background"
+                    />
+                </div>
+                <XRayHint mouse={mouse}/>
             </div>
-            <XRayHint mouse={mouse}/>
         </div>
     )
 }
@@ -40,8 +42,6 @@ const XRayHint: React.FunctionComponent<XRayHintProps> = (props) => {
     return <div
         className={styles.Hint}
         style={{
-            width: "0",
-            position: "relative",
             left: props.mouse.x || 100,
             top: props.mouse.y || 100
         }}

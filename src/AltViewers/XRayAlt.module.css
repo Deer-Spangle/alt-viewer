@@ -4,6 +4,12 @@
     background-color: #61dafb;
     touch-action: none;
 }
+.BackgroundWrapper {
+    width: 100%;
+    height: auto;
+    left: 0;
+    position: absolute;
+}
 .ImgForeground {
     width: 100%;
     height: auto;
@@ -13,8 +19,8 @@
 .ImgBackground {
     width: 100%;
     height: auto;
-    left: 0;
-    position: absolute;
 }
 .Hint {
+    width: 0;
+    position: absolute;
 }
