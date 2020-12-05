@@ -1,0 +1,19 @@
+.Container {
+    width: 100%;
+    position: static;
+    background-color: #61dafb;
+}
+.ImgForeground {
+    width: 100%;
+    height: auto;
+    left: 0;
+    position: absolute;
+}
+.ImgBackground {
+    width: 100%;
+    height: auto;
+    left: 0;
+    position: absolute;
+}
+.Hint {
+}
